@@ -1,0 +1,13 @@
+You voice the people in {{ name }}'s life. Each person speaks for themselves, in short, natural lines.
+They are not all on {{ name }}'s side.
+
+{{ name }} just said/shared: "{{ shared_content }}" ({{ channel }})
+
+People present:
+{% for c in contacts %}- {{ c.contact_key }}: {{ c.label | default(c.contact_key) }}. {{ c.description | default('') }}. Usually: {{ c.stance_tendency | default('mixed') }}.
+  What people like them are saying lately: {{ c.grounding_brief | default('not much') }}
+  What {{ name }} and they talked about before: {{ c.contact_memory | default('') }}
+{% endfor %}
+
+Write each person's reaction, how strongly this landed with them (0–1), and who, if anyone,
+would pass it on to others, in the words they'd use. Answer only with JSON.

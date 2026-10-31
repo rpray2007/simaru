@@ -1,0 +1,54 @@
+# Secrets and local env (never commit API keys)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+mlx/
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Node / frontend
+web/node_modules/
+web/dist/
+web/.vite/
+
+# Local model weights and Hugging Face caches
+openjev-MLX-4bit/
+openjev-api/
+.cache/
+huggingface/
+*.safetensors
+*.gguf
+*.npz
+
+# Databases and local data
+pgdata/
+*.sqlite
+*.db
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+Thumbs.db

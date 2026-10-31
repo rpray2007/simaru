@@ -1,0 +1,76 @@
+stub-system1:
+  kind: stub_system1
+  model: stub-system1
+  model_digest: stub-system1-v1
+
+stub-llm:
+  kind: stub_llm
+  model: stub-llm
+  model_digest: stub-llm-v1
+  options:
+    temperature: 0.7
+
+stub-embed:
+  kind: stub_embed
+  model: stub-embed
+  model_digest: stub-embed-v1
+  dim: 768
+
+# Hosted TypeSafe Jev — https://docs.typesafe.ai/api
+# POST https://api.typesafe.ai/v1/systemone  (Bearer TYPESAFE_API_KEY)
+# TYPEFACE_API_KEY is accepted as an alias.
+typesafe-hosted:
+  kind: system_one
+  base_url: https://api.typesafe.ai/v1/systemone
+  model: jev-latest
+  model_digest: jev-latest
+  use_fixtures: false
+  fallback_fixtures: true
+  timeout_s: 60
+
+# Legacy OpenJev hosted alias (same adapter; prefer typesafe-hosted).
+openjev-hosted:
+  kind: system_one
+  base_url: https://api.typesafe.ai/v1/systemone
+  model: jev-latest
+  model_digest: jev-latest
+  use_fixtures: false
+  fallback_fixtures: true
+  timeout_s: 60
+
+# Self-hosted openjev-server on :3000 (sim API stays on :8000).
+# Mac:  openjev serve --backend mlx --model openjev/openjev-MLX-4bit --profile openjev
+# GPU:  openjev serve --backend vllm --model openjev/openjev-FP8 \
+#         --vllm-url http://localhost:8001/v1 --profile openjev
+# Install: pip install -e ".[openjev]"  (or openjev-server[mlx] from GitHub)
+openjev-local:
+  kind: system_one
+  base_url: http://localhost:3000/v1/systemone
+  model: openjev
+  model_digest: openjev-local
+  use_fixtures: false
+  fallback_fixtures: true
+  timeout_s: 120
+
+openjev-fixtures:
+  kind: system_one
+  base_url: https://api.openjev.sh/v1/systemone
+  model: openjev-fixtures
+  model_digest: fixtures-v1
+  use_fixtures: true
+
+llama3.2-3b:
+  kind: ollama_chat
+  base_url: http://127.0.0.1:11434
+  model: llama3.2:3b
+  model_digest: pending
+  options:
+    temperature: 0.7
+    num_ctx: 8192
+
+nomic-embed-text:
+  kind: ollama_embed
+  base_url: http://127.0.0.1:11434
+  model: nomic-embed-text
+  model_digest: pending
+  dim: 768

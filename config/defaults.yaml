@@ -1,0 +1,94 @@
+engine:
+  burn_in_sweeps: 6
+  horizon_sweeps: 12
+  mode: closed
+  chaos_level: 1.0
+
+system1:
+  conf_threshold: 0.7
+  max_escalations_per_agent: 3
+  attention_baseline: 6
+  audit_share: 0.01
+
+update:
+  gut_step_max: 0.5
+  gut_certainty_max: 0.3
+  slow_evidence_min: 3
+  slow_cooldown_sweeps: 4
+
+decay:
+  mood_to_baseline: 0.5
+  concern_salience: 0.6
+
+memory:
+  k_full: 15
+  k_standard: 8
+  recency_base: 0.85
+  drop_importance_max: 3
+  drop_age: 4
+  summarize_after: 8
+  standard_cap: 60
+
+llm:
+  system2_prompt_tokens: 3500
+  max_retries: 2
+
+messages:
+  max_per_sweep: 10
+  expiry_sweeps: 2
+
+circle:
+  close_contacts_min: 3
+  close_contacts_max: 8
+  disagree_share: 0.3
+  pass_on_base:
+    household: 0.05
+    close: 0.15
+    work_school: 0.35
+    community: 0.2
+  max_recipients_per_share: 5
+  habit_spread_factor: 0.5
+
+conversation:
+  max_turns: 4
+
+reflection:
+  cycle_sweeps: 4
+
+population:
+  sampling_ratio: 100
+  full_tier_share: 0.05
+  donor_pool: 8
+  copula_sigma: 0.15
+  synthetic_tail_share: 0.03
+
+randomness:
+  amplification_p: 0.02
+  misperception_p: 0.05
+  noise_jitter: 0.1
+
+ensemble:
+  default_seeds: 5
+
+drift:
+  check_every: 4
+  warn_share: 0.02
+
+estimate:
+  t_llm: 3.0
+  t_s1: 0.3
+
+compute:
+  workers: 2
+
+# system1: hosted TypeSafe Jev. Put TYPESAFE_API_KEY (or TYPEFACE_API_KEY) in .env.
+models:
+  system1: typesafe-hosted
+  system2: stub-llm
+  circle: stub-llm
+  world_master: stub-llm
+  institutions: stub-llm
+  embeddings: stub-embed
+  narrative: stub-llm
+  reflection: stub-llm
+  judge: stub-llm

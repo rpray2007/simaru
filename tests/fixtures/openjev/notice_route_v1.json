@@ -1,0 +1,51 @@
+{
+  "question_set": "notice_route_v1",
+  "cases": [
+    {
+      "state_contains": "phone",
+      "answers": {
+        "notices": {"value": "yes", "probs": {"yes": 0.9, "no": 0.1}, "confidence": 0.9},
+        "valence": {
+          "value": "negative",
+          "probs": {"very negative": 0.1, "negative": 0.7, "neutral": 0.15, "positive": 0.05, "very positive": 0.0},
+          "confidence": 0.85
+        },
+        "arousal": {"value": "medium", "probs": {"low": 0.2, "medium": 0.6, "high": 0.2}, "confidence": 0.8},
+        "route": {"value": "escalate", "probs": {"ignore": 0.1, "habit": 0.2, "escalate": 0.7}, "confidence": 0.85},
+        "habit_action": {
+          "value": "grumble at home",
+          "probs": {"none": 0.2, "grumble at home": 0.5, "mention to a coworker": 0.2, "pay and move on": 0.1},
+          "confidence": 0.8
+        },
+        "relevance": {
+          "value": "me directly",
+          "probs": {"not me": 0.1, "someone close": 0.2, "me directly": 0.7},
+          "confidence": 0.85
+        }
+      }
+    },
+    {
+      "state_contains": "quiet",
+      "answers": {
+        "notices": {"value": "no", "probs": {"yes": 0.2, "no": 0.8}, "confidence": 0.9},
+        "valence": {
+          "value": "neutral",
+          "probs": {"very negative": 0.0, "negative": 0.1, "neutral": 0.8, "positive": 0.1, "very positive": 0.0},
+          "confidence": 0.9
+        },
+        "arousal": {"value": "low", "probs": {"low": 0.8, "medium": 0.15, "high": 0.05}, "confidence": 0.9},
+        "route": {"value": "ignore", "probs": {"ignore": 0.8, "habit": 0.15, "escalate": 0.05}, "confidence": 0.9},
+        "habit_action": {
+          "value": "none",
+          "probs": {"none": 0.9, "grumble at home": 0.05, "mention to a coworker": 0.03, "pay and move on": 0.02},
+          "confidence": 0.9
+        },
+        "relevance": {
+          "value": "not me",
+          "probs": {"not me": 0.8, "someone close": 0.15, "me directly": 0.05},
+          "confidence": 0.9
+        }
+      }
+    }
+  ]
+}
